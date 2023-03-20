@@ -3,6 +3,11 @@
     font-family: sans-serif;
     font-weight: normal;
   }
+
+  h1 {
+    justify-content: center;
+    position: center;
+  }
   
   body {
     padding: 0;

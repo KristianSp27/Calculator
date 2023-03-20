@@ -1,3 +1,6 @@
+const NUMBERS = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
+const OPERATIONS = ["+", "-"];
+
 class Calculator {
   constructor(previousOperandTextElement, currentOperandTextElement) {
     this.previousOperandTextElement = previousOperandTextElement;
@@ -100,6 +103,17 @@ numberButtons.forEach((button) => {
   });
 });
 
+numberButtons.forEach((button) => {
+  button.addEventListener("keydown", (event) => {
+    const number = event.key;
+    if (NUMBERS.includes(number)) {
+      calculator.appendNumber(number);
+      calculator.updateDisplay();
+      console.log(event.key);
+    }
+  });
+});
+
 operationButtons.forEach((button) => {
   button.addEventListener("click", () => {
     calculator.chooseOperation(button.innerText);
@@ -111,6 +125,13 @@ equalsButton.addEventListener("click", (button) => {
   calculator.compute();
   calculator.updateDisplay();
 });
+
+// equalsButton.addEventListener("keydown", (event) => {
+//   if (event.key === "Enter") {
+//     calculator.compute();
+//     calculator.updateDisplay();
+//   }
+// });
 
 allClearButton.addEventListener("click", (button) => {
   calculator.clear();
